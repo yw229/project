@@ -18,7 +18,7 @@ public class Premutation
         if(s.length() == 0)
         {
             list.add(" ") ;
-            return list ;
+          
         }
         char first = s.charAt(0) ;
         System.out.println("first "  + first) ;
