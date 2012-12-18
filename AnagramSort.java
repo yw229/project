@@ -37,7 +37,7 @@ public class AnagramSort {
 	{
 		List<String> anagramList = null;
 		Map< String, List<String> > map=new HashMap< String, List<String> >();
-		Set< String> hasAnagram= new HashSet<String>();
+		//Set< String> hasAnagram= new HashSet<String>();
 		
 		for(String w: words)
 		{
@@ -47,12 +47,13 @@ public class AnagramSort {
 			{	
 				anagramList = map.get(key);
 				anagramList.add(w);
-				hasAnagram.add(key);
+				//hasAnagram.add(key);
 			}
 			if(!map.containsKey(key))
 			{
 				anagramList=new ArrayList<String>();
 				//map.put(key,new LinkedList<String>());
+                                   anagramList.add(w) ;
 				map.put(key, anagramList);
 			}
 			if(! anagramList.contains(w) )
@@ -64,8 +65,8 @@ public class AnagramSort {
 		String[] keys=new String[map.size()];
 		for(String k: map.keySet().toArray(keys))
 		{
-			if(! hasAnagram.contains(k) || k.length()<2)
-				map.remove(k);
+		     if(map.get(k).size()<2)
+                         map.remove(k);
 		}
 		
 		return map;
